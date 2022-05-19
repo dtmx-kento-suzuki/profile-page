@@ -1,8 +1,8 @@
 import React from "react";
-
-export const Percent = ({ percent, onAddFriends = () => {} }) => {
+import classNames from "classnames";
+export const Percent = ({ percent, onAddFriends = () => {}, className }) => {
   return (
-    <div className="percent-container">
+    <div className={classNames("percent-container", className)}>
       <div className="percent-container-left">
         <div className="percent-container-left-heading">
           How Personalized Your Account Is

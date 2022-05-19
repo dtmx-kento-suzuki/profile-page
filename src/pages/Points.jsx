@@ -3,9 +3,16 @@ import { Box } from "./../components/Box";
 import { Info } from "./../components/Info";
 import { Button } from "./../components/Button";
 import { FaCheck } from "react-icons/fa";
-import { GrClose } from "react-icons/gr";
 import { MdDoNotDisturbAlt } from "react-icons/md";
+import PointsImg from "./../assets/points-balance.jpg";
+import LogoImg from "./../assets/marx-logo.svg";
+import { useCountUp } from "react-countup";
+
 export const Points = () => {
+  const countUpRef = React.useRef(null);
+
+  useCountUp({ ref: "counter", end: 12567, separator: "," });
+
   return (
     <div className=" points-page row">
       <div className="col-md-8">
@@ -42,7 +49,7 @@ export const Points = () => {
         </Box>
       </div>
       <div className="col-md-4 d-flex flex-column">
-        <Box title="MESSAGE CENTER" info="messages">
+        {/* <Box title="MESSAGE CENTER" info="messages">
           <div className="notification-container mt-3">
             <div className="notification-icon"></div>
             <div className="ml-2 my-auto notification-text">
@@ -57,16 +64,22 @@ export const Points = () => {
               Settings
             </Button>
           </div>
-        </Box>
-        <Box title="MARX POINTS BALANCE" className="mt-4" info="balance">
-          <div className="marx-balance mt-3">12486</div>
-          <div className="d-flex mt-4 justify-content-center">
-            <Button className="" isOutline style={{ width: 116 }}>
-              Earn free points
-            </Button>
-            <Button className="ml-3" style={{ width: 116 }}>
-              REDEEM
-            </Button>
+        </Box> */}
+        <Box title="MARX POINTS BALANCE" info="balance" style={{ height: 404 }}>
+          <div className="d-flex flex-column">
+            <img src={PointsImg} alt="marx points" className="mx-auto" />
+            <div className="d-flex justify-content-center mt-3">
+              <img src={LogoImg} alt="logo" />
+              <div className="marx-balance" id="counter" ref={countUpRef}></div>
+            </div>
+            <div className="d-flex mt-4 justify-content-center">
+              <Button className="" isOutline style={{ width: 116 }}>
+                Earn free points
+              </Button>
+              <Button className="ml-3" style={{ width: 116 }}>
+                REDEEM
+              </Button>
+            </div>
           </div>
         </Box>
       </div>

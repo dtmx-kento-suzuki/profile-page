@@ -61,7 +61,7 @@ export const Settings = () => {
               <div className="row">
                 <div className="col-4">
                   <div className="profile-image-container">
-                    <div className="col-12 label-text text-center">
+                    <div className="profile-image-label">
                       Your Profile Picture
                     </div>
                     <FormProfilePhoto name="avatar" />

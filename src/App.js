@@ -7,6 +7,7 @@ import { Permissions } from "./pages/Permissions";
 import { Wallet } from "./pages/Wallet";
 import { Settings } from "./pages/Settings";
 import { TabContent } from "./components/TabContent";
+import { Layout } from "./components/Layout";
 import { useInput } from "./useInput";
 
 const tabData = [
@@ -30,11 +31,24 @@ const tabData = [
 function App() {
   const tab = useInput(tabData[0].id);
   return (
-    <div className="profile-page">
-      <div className="container">
-        <Percent percent={74} />
+    <Layout>
+      <div className="profile-page">
+        <div className="profile-first-section">
+          <img
+            className="profile-page-avatar"
+            src="https://me.mymarx.io/assets/brands/profile-placeholder.png"
+            alt="placeholder"
+          />
+          <div className="profile-page-info">
+            <div className="profile-page-info-name">Elmer Fudd</div>
+            <div className="profile-page-info-member">
+              MEMBER SINCE AUG 2018
+            </div>
+          </div>
+          <Percent percent={74} className="ml-auto" />
+        </div>
         <div className="position-relative">
-          <Tab className="mt-3" data={tabData} {...tab} />
+          <Tab className="mt-4" data={tabData} {...tab} />
           <TabContent>
             {tab.value === tabData[0].id ? (
               <Points />
@@ -48,7 +62,7 @@ function App() {
           </TabContent>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 
