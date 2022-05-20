@@ -195,6 +195,7 @@
       &:first-child {
         margin-left: 0px;
       }
+
       &::before {
         content: " "; /* To generate the box */
         position: absolute;
@@ -203,19 +204,34 @@
         left: 0;
         z-index: -1;
         border-bottom: none;
-        border-radius: 4px 0px 0 0;
+        border-radius: 2px 0px 0 0;
         transform: perspective(10px) rotateX(1deg);
-        background: linear-gradient(to right, #ddd, #f0f0f0, #f7f7f7);
-        // box-shadow: 3px 0px 10px 0px rgba(0, 0, 0, 0.9);
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2);
+        background: #f7f7f7;
+        border: 1px solid #f7f7f7;
+        box-shadow: 8px 14px 10px #9d9d9d90;
         transform-origin: bottom left;
         height: 60px;
         &:hover {
           background: white;
         }
       }
+      &:first-child::before {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 10px 14px 10px #9d9d9d90;
+        &.active {
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), -6px 14px 10px #9d9d9d90;
+        }
+      }
+      &:first-child {
+        &.active::before {
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 10px 14px 10px #9d9d9d90;
+        }
+      }
+      &:last-child::before {
+        box-shadow: none;
+      }
       &.active::before {
         background: white;
+        box-shadow: 8px 14px 10px #9d9d9d90, -6px 14px 10px #9d9d9d90;
       }
       &.active {
         z-index: 10;
@@ -800,26 +816,24 @@
     color: #555;
   }
   .permission-feed-big {
-    width: 240px;
-    height: 240px;
+    width: 250px;
+    height: 250px;
     border-radius: 4px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    position: relative;
+    background-size: cover;
   }
   .permission-feed-small {
     width: 120px;
     height: 120px;
     border-radius: 4px;
-    &.om {
-      box-shadow: 0 2px 4px #cc000060;
-    }
-    &.amazon {
-      box-shadow: 0 2px 4px #ff990060;
-    }
-    &.bb {
-      box-shadow: 0 2px 4px #0000ff60;
-    }
-    &.uber {
-      box-shadow: 0 2px 4px #00000060;
+    position: relative;
+    display: flex;
+    &-img {
+      width: 80px;
+      height: 80px;
+      margin: auto;
+      object-fit: contain;
+      z-index: 1;
     }
   }
   .search-box-container {

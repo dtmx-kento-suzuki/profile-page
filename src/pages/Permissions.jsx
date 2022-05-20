@@ -3,6 +3,8 @@ import { SearchBox } from "./../components/SearchBox";
 import { PermissionBrand } from "./../components/PermissionBrand";
 import { Publisher } from "./../components/Publisher";
 import { Option } from "./../components/Option";
+import { FeedSmall } from "./../components/FeedSmall";
+import { FeedBig } from "./../components/FeedBig";
 import { useInput } from "./../useInput";
 import SpendingImg from "./../assets/permission-spending.svg";
 
@@ -17,18 +19,44 @@ export const Permissions = () => {
           of your current feed based on your current Permissions Settings.{" "}
         </div>
         <div className="d-flex">
-          <div className="permission-feed-big"></div>
-          <div className="d-flex flex-column">
-            <div className="permission-feed-small om"></div>
-            <div className="permission-feed-small amazon"></div>
+          <FeedBig img="https://marx-assets.s3.amazonaws.com/prod/brand/5db9af9916a4d06c98ac7849/so/1652429932136__featured_image.jpg" />
+          <div className="d-flex flex-column" style={{ marginLeft: 15 }}>
+            <FeedSmall
+              img={
+                "https://marx-assets.s3.amazonaws.com/prod/brand/5db8900716a4d04c3d484133/so/1572536140026_Best_Buy_logo_2018.png"
+              }
+              backColor="red"
+            />
+            <FeedSmall
+              img={
+                "https://marx-assets.s3.amazonaws.com/prod/brand/5db9a9e516a4d06c98ac7843/so/1572454966209_CocaColaStore.png"
+              }
+              style={{ marginTop: 10 }}
+              backColor="yellow"
+            />
           </div>
         </div>
-        <div className="d-flex">
+        <div className="d-flex mt-3">
           <div className="d-flex flex-column">
-            <div className="permission-feed-small bb"></div>
-            <div className="permission-feed-small uber"></div>
+            <FeedSmall
+              img={
+                "https://marx-assets.s3.amazonaws.com/prod/brand/5db9a8fc16a4d06c98ac7842/so/1652430938557_cabelaslogo.png"
+              }
+              backColor="blue"
+            />
+            <FeedSmall
+              img={
+                "https://marx-assets.s3.amazonaws.com/prod/brand/5db9ac2716a4d06c98ac7846/so/1572449335046_Crocs.png"
+              }
+              style={{ marginTop: 10 }}
+              backColor="black"
+            />
           </div>
-          <div className="permission-feed-big"></div>
+
+          <FeedBig
+            style={{ marginLeft: 15 }}
+            img="https://marx-assets.s3.amazonaws.com/prod/brand/5de90c6d16a4d050c1dcbe67/so/1652693916480_241316565_10165924877565495_1201932218685537329_n.jpeg"
+          />
         </div>
       </div>
       <div className="col-8">
